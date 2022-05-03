@@ -1,0 +1,52 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'mysite-api'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=mysite-api",
+                    "--package=mysite-api"
+                ],
+                "filter": {
+                    "name": "mysite-api",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "MONGODB_URL": "<mongodb primary uri>",
+                "MONGODB_DATABASE": "<database name>",
+                "MONGODB_COLLECTION": "<collection name>",
+                "FUNCTIONS_CUSTOMHANDLER_PORT": "7071",
+                "RUST_BACKTRACE": "1",
+            }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'mysite-api'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=mysite-api",
+                    "--package=mysite-api"
+                ],
+                "filter": {
+                    "name": "mysite-api",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
